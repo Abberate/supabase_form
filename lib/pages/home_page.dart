@@ -80,9 +80,7 @@ class _HomePageState extends State<HomePage> {
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
               final userId = supabase.auth.currentUser!.id;
-              final filteredData = snapshot.data
-                  .where((item) => item['user_id'] == userId)
-                  .toList();
+              final filteredData = snapshot.data.toList();
 
               if (filteredData.isEmpty) {
                 return const Center(child: Text("No Data available Now"));

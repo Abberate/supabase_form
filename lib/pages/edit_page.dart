@@ -45,9 +45,8 @@ class _EditPageState extends State<EditPage> {
 
     try {
       await supabase.from('todos').delete().match({'id': widget.id});
-      if (mounted) {
-        Navigator.pop(context, 'remove');
-      }
+
+      Navigator.pop(context, 'remove');
     } catch (e) {
       setState(() {
         isLoading = false;
